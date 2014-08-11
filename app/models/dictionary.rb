@@ -26,7 +26,7 @@ class Dictionary
   end
 
   def filename(language)
-    "#{language}.txt"
+    File.join('db', "#{language}.txt")
   end
 
   def read_words(filename)
