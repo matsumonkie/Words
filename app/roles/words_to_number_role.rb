@@ -2,6 +2,10 @@ module WordsToNumberRole
 
   INDEX_NOT_FOUND = :index_not_found
 
+  def words_present?(indexes)
+    indexes.none? { |index| index == INDEX_NOT_FOUND }
+  end
+
   # [string] -> [int]
   def words_to_indexes(words: words)
     words.map { |word|

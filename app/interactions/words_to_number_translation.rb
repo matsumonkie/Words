@@ -5,14 +5,17 @@ class WordsToNumberTranslation
   end
 
   def source
-    @triplet.to_s
+    @triplet
   end
 
   def translate
     @dico.play_role(WordsToNumberRole) do |dico|
       indexes = dico.words_to_indexes(words: @triplet)
-      #valid_indexes = indexes.all? { |index| index_finder.valid_index?(index) }
-      dico.indexes_to_chunk_index(indexes: indexes)
+      if dico.words_present?(indexes)
+        dico.indexes_to_chunk_index(indexes: indexes)
+      else
+        :invalid_words
+      end
     end
   end
 end
