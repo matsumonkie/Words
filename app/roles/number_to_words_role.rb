@@ -1,6 +1,22 @@
-module ChunkIndexToWordsRole
+module NumberToWordsRole
 
-  def search_words(chunk_index: chunk_index)
+  def number_valid?(index)
+    index >= 0 && index < length() ** 3
+  end
+
+  # (int) -> int
+  def index_to_chunk_index(index: index)
+    nb_combinations = length() ** ::TUPLE_SIZE
+    nb_chunk = nb_combinations / ::CHUNK_SIZE
+
+    index_in_chunk = index / ::CHUNK_SIZE
+    element_in_chunk = index.modulo(::CHUNK_SIZE)
+    chunk = element_in_chunk * nb_chunk
+    chunk + index_in_chunk
+  end
+
+  # (int) -> [string]
+  def chunk_index_to_words(chunk_index: chunk_index)
     nb_combinations_max = length() ** ::TUPLE_SIZE
     if chunk_index >= nb_combinations_max
       :index_too_high

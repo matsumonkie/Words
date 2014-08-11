@@ -9,14 +9,10 @@ class WordsToNumberTranslation
   end
 
   def translate
-    indexes = @dico.play_role(WordsToIndexesRole) do |dico|
-      dico.search_index(words: @triplet)
-    end
-
-    #valid_indexes = indexes.all? { |index| index_finder.valid_index?(index) }
-
-    @dico.play_role(IndexesToChunkIndexRole) do |dico|
-      dico.search_chunk_index(indexes: indexes)
+    @dico.play_role(WordsToNumberRole) do |dico|
+      indexes = dico.words_to_indexes(words: @triplet)
+      #valid_indexes = indexes.all? { |index| index_finder.valid_index?(index) }
+      dico.indexes_to_chunk_index(indexes: indexes)
     end
   end
 end

@@ -9,12 +9,13 @@ class NumberToWordsTranslation
   end
 
   def translate
-    chunk_index = @dico.play_role(IndexToChunkIndexRole) do |dico|
-      dico.search_chunk_index(index: @number)
-    end
-
-    @dico.play_role(ChunkIndexToWordsRole) do |dico|
-      dico.search_words(chunk_index: chunk_index)
+    @dico.play_role(NumberToWordsRole) do |dico|
+      if dico.number_valid?(@number)
+        chunk_index = dico.index_to_chunk_index(index: @number)
+        dico.chunk_index_to_words(chunk_index: chunk_index)
+      else
+        :invalid_number
+      end
     end
   end
 end
