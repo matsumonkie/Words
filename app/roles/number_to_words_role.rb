@@ -26,10 +26,7 @@ module NumberToWordsRole
     end
   end
 
-  # find each tuple index
-  # eg:
-  # given 0
-  # return [0, 0, 0]
+  # (int) -> [int]
   def find_indexes(remainder, which_tuple = 0)
     if which_tuple < ::TUPLE_SIZE
       cur_tuple_power = ::TUPLE_SIZE - which_tuple - 1
