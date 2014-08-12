@@ -17,5 +17,5 @@ class WordsToNumberTranslation
         :invalid_words
       end
     end
-  end
+  end    
 end
