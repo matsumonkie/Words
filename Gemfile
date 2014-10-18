@@ -1,14 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'coffee-rails'  ,'~> 4.0'
-gem 'jquery-rails'
-gem 'jbuilder'      ,'~> 2.0'
+ruby '2.1.2'
+
 gem 'rails'         ,'~> 4.1'
+
+gem 'coffee-rails'  ,'~> 4.1'
+gem 'jquery-rails'  ,'~> 3.1'
+gem 'jbuilder'      ,'~> 2.2'
+gem 'pg'
 gem 'sass-rails'    ,'~> 4.0'
-gem 'sdoc'          ,'~> 0.4', group: :doc
 gem 'slim-rails'    ,'~> 0.1'
-gem 'sqlite3'
-gem 'uglifier'      ,'~> 1.3'
+gem 'uglifier'      ,'~> 2.5'
 
 group :development do
   gem 'spring'
